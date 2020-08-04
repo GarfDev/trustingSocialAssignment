@@ -4,13 +4,10 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   devtool: 'eval-source-map',
-  output: {
-    ecmaVersion: 5,
-  },
   devServer: {
     port: 3000,
-    historyApiFallback: true,
     publicPath: '/',
+    historyApiFallback: true,
     stats: {
       colors: true,
       hash: false,
@@ -28,10 +25,11 @@ module.exports = {
       publicPath: false,
     },
   },
-  entry: './app/app',
+  entry: ['react-hot-loader/patch', './app/app'],
   output: {
-    path: path.join(__dirname, '/build'),
+    path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -42,6 +40,14 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\[.ts$|.tsx$]/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          // eslint options (if necessary)
+        },
+      },
       {
         test: /\.(png|jpe?g|gif|ico)$/i,
         loader: 'file-loader',
@@ -68,7 +74,9 @@ module.exports = {
       safe: true,
     }),
     new HtmlWebpackPlugin({
-      template: './app/index.html',
+      template: path.resolve(__dirname, 'app', 'index.html'),
+      filename: './index.html',
+      favicon: './app/assests/favicon.ico',
     }),
   ],
 };

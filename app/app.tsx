@@ -4,19 +4,14 @@ import ReactDOM from 'react-dom';
 // App
 import App from '@/modules/@core/App';
 // Cores
-import { RecoilRoot } from 'recoil';
+import {RecoilRoot} from 'recoil';
 // router
-import { BrowserRouter as Router } from 'react-router-dom';
-import GlobalStyle from './globalStyles';
 // configureStore
 const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 
 ReactDOM.render(
   <RecoilRoot>
-    <Router>
-      <App />
-      <GlobalStyle />
-    </Router>
+    <App />
   </RecoilRoot>,
   MOUNT_NODE,
 );

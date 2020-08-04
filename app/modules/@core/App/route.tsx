@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import { Route } from 'react-router-dom';
+import React, {Suspense} from 'react';
+import {Route} from 'react-router-dom';
 // Import Resources
 
 function HelloWord() {

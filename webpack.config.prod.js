@@ -29,20 +29,30 @@ module.exports = {
       },
     },
   },
-  output: {
-    ecmaVersion: 5,
-  },
-  entry: './app/app',
+  entry: ['react-hot-loader/patch', './app/app'],
   output: {
     path: path.join(__dirname, '/build'),
     filename: 'bundle.js',
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    publicPath: '/',
   },
 
   module: {
     rules: [
+      {
+        test: /\[.ts$|.tsx$]/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          // eslint options (if necessary)
+        },
+      },
+      {
+        test: /\.(png|jpe?g|gif|ico)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      },
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
@@ -54,13 +64,6 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.(png|jpe?g|gif|ico)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
-      },
     ],
   },
   plugins: [
@@ -69,7 +72,9 @@ module.exports = {
       silent: true,
     }),
     new HtmlWebpackPlugin({
-      template: './app/index.html',
+      template: path.resolve(__dirname, 'app', 'index.html'),
+      filename: './index.html',
+      favicon: './app/assests/favicon.ico',
     }),
     new CompressionPlugin(),
   ],

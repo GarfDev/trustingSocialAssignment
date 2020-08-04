@@ -33,11 +33,12 @@
     "allowUnreachableCode": false,
     "noImplicitAny": true,
     "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "importHelpers": true
   },
   "include": ["app/**/*", "app/declaration.d.ts"],
