@@ -2,18 +2,40 @@ import styled from 'styled-components';
 
 const Styles = {
   Wrapper: styled.div`
-    width: max-content;
+    width: 100%;
     height: max-content;
+    padding: 20px;
+
+    .result-box {
+      max-width: 60%;
+    }
+
+    .legend-input {
+      padding: 18px 25px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .result-box {
+        max-width: 100%;
+        padding: 18px 15px;
+      }
+    }
   `,
   Input: styled.input`
     position: relative;
-    width: ${({width}) => width || '60%'};
+    width: ${({width}) => width || '100%'};
     height: ${({height}) => height || '5rem'};
-    font-size: ${({height}) => (height ? `calc(${height} - 2rem)` : '2rem')};
-    padding: 18px 20px;
+    font-size: ${({height}) => (height ? `calc(${height} - 2.5vh)` : '2rem')};
     border: 1px solid;
     border-radius: 35px;
+    transition: all 0.25s linear;
     outline: none;
+    &:hover,
+    &:focus {
+      border: 1px solid ${({theme}) => theme.color};
+      box-shadow: 0 0 13px ${({theme}) => theme.color};
+      transition: all 0.25s linear;
+    }
   `,
   ResultContainer: styled.div<{inputWidth?: string}>`
     position: absolute;
@@ -21,19 +43,26 @@ const Styles = {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 25px 0px;
-    max-width: ${({inputWidth}) => inputWidth};
-    max-height: 80%;
+    margin-top: 20px;
+    width: ${({inputWidth}) => inputWidth};
+    max-height: 60vh;
     overflow: hidden;
   `,
-  Result: styled.div`
+  Result: styled.div<{height?: string}>`
     padding: 15px;
     width: max-content;
     height: max-content;
-    border: 1px solid;
+    font-size: ${({height}) => (height ? `calc(${height} -  2.5vh)` : '2rem')};
     border-radius: 5px;
     margin: 10px;
     animation: fadeIn ease 0.7s;
+    transition: all 0.25s linear;
+    &:hover {
+      color: ${({theme}) => theme.backgroundColor};
+      background-color: ${({theme}) => theme.color};
+      transition: all 0.25s linear;
+      cursor: pointer;
+    }
 
     @keyframes fadeIn {
       from {
@@ -43,6 +72,11 @@ const Styles = {
         opacity: 1;
       }
     }
+  `,
+  ErrorMessage: styled.span`
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
   `,
 };
 

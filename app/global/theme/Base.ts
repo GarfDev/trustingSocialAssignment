@@ -15,11 +15,13 @@ const BaseStyle = createGlobalStyle`
     width: 100%;
   }
 
+
   body {
     align-items: center;
     background: ${({theme}) => theme.backgroundColor};
     color: ${({theme}) => theme.color};
     border-color: ${({theme}) => theme.borderColor};
+    box-shadow: inset 0 180px 500px -120px ${({theme}) => theme.hoverColor};
     display: flex;
     flex-direction: column;
     height: 100vh;

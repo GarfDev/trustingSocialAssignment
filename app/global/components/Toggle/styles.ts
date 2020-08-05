@@ -2,35 +2,36 @@ import styled from 'styled-components';
 
 const Styles = {
   ToggleContainer: styled.button<{lightTheme: boolean}>`
-    background: ${({theme}) => theme.backgroundColor};
-    border: 2px solid ${({theme}) => theme.borderColor};
+    position: relative;
+    outline: none !important;
+    border: none;
+    background-color: ${({theme}) => theme.color};
     border-radius: 30px;
     cursor: pointer;
     display: flex;
-    font-size: 0.5rem;
-    justify-content: space-between;
-    margin: 0 auto;
+    justify-content: center;
     overflow: hidden;
+    align-items: center;
+    margin-right: 0.6rem;
+    width: 80px;
+    height: 30px;
     padding: 0.5rem;
-    position: relative;
-    width: 8rem;
-    height: 4rem;
-
-    svg {
-      height: auto;
-      width: 2.5rem;
-      transition: all 0.3s linear;
-
-      &:first-child {
-        transform: ${({lightTheme}) =>
-          lightTheme ? 'translateY(0)' : 'translateY(100px)'};
-      }
-
-      &:nth-child(2) {
-        transform: ${({lightTheme}) =>
-          lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
-      }
-    }
+  `,
+  LightText: styled.span<{center: boolean}>`
+    position: absolute;
+    color: ${({theme}) => theme.backgroundColor};
+    font-weight: bolder;
+    transform: ${({center}) =>
+      center ? 'translateX(0)' : 'translateX(100px)'};
+    transition: all 0.25s linear;
+  `,
+  DarkText: styled.span<{center: boolean}>`
+    position: absolute;
+    color: ${({theme}) => theme.backgroundColor};
+    font-weight: bolder;
+    transform: ${({center}) =>
+      center ? 'translateX(0)' : 'translateX(100px)'};
+    transition: all 0.25s linear;
   `,
 };
 
