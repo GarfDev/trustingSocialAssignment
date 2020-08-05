@@ -3,7 +3,7 @@ import {useRecoilValue} from 'recoil';
 import {hot} from 'react-hot-loader/root';
 import {ThemeProvider} from 'styled-components';
 import {themeSelector} from './atoms';
-import {BaseStyle} from '@/global/Theme';
+import {BaseStyle} from '@/global/theme';
 // Import Resources
 import NavigationBar from '../Navigation';
 import LandingPage from '../LandingPage';
