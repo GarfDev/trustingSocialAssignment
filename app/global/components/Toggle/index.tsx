@@ -1,19 +1,16 @@
 import React from 'react';
-import {ReactComponent as MoonIcon} from '@/assests/icons/moon.svg';
-import {ReactComponent as SunIcon} from '@/assests/icons/sun.svg';
 import Styles from './styles';
 
 interface Props {
-  theme: string;
+  isDark: boolean;
   toggleTheme: () => void;
 }
 
-const Toggle = ({theme, toggleTheme}: Props) => {
-  const isLight = theme === 'light';
+const Toggle = ({isDark, toggleTheme}: Props) => {
   return (
-    <Styles.ToggleContainer lightTheme={isLight} onClick={toggleTheme}>
-      <SunIcon />
-      <MoonIcon />
+    <Styles.ToggleContainer lightTheme={!isDark} onClick={toggleTheme}>
+      <Styles.LightText center={!isDark}>Light</Styles.LightText>
+      <Styles.DarkText center={isDark}>Dark</Styles.DarkText>
     </Styles.ToggleContainer>
   );
 };

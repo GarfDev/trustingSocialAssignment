@@ -4,6 +4,7 @@ const Styles = {
   Wrapper: styled.div`
     width: max-content;
     height: max-content;
+    padding: 20px;
   `,
   Input: styled.input`
     position: relative;
@@ -13,7 +14,13 @@ const Styles = {
     padding: 18px 20px;
     border: 1px solid;
     border-radius: 35px;
+    transition: all 0.25s linear;
     outline: none;
+    &:hover {
+      border: 1px solid ${({theme}) => theme.color};
+      box-shadow: 0 0 13px ${({theme}) => theme.color};
+      transition: all 0.25s linear;
+    }
   `,
   ResultContainer: styled.div<{inputWidth?: string}>`
     position: absolute;
@@ -21,7 +28,7 @@ const Styles = {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 25px 0px;
+    padding: 25px 20px;
     max-width: ${({inputWidth}) => inputWidth};
     max-height: 80%;
     overflow: hidden;
@@ -34,6 +41,13 @@ const Styles = {
     border-radius: 5px;
     margin: 10px;
     animation: fadeIn ease 0.7s;
+    transition: all 0.25s linear;
+    &:hover {
+      color: ${({theme}) => theme.backgroundColor};
+      background-color: ${({theme}) => theme.color};
+      transition: all 0.25s linear;
+      cursor: pointer;
+    }
 
     @keyframes fadeIn {
       from {
@@ -43,6 +57,10 @@ const Styles = {
         opacity: 1;
       }
     }
+  `,
+  ErrorMessage: styled.span`
+    font-size: 1.2rem;
+    font-weight: 400;
   `,
 };
 
