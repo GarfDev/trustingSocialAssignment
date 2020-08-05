@@ -7,12 +7,20 @@ interface Props {
 }
 
 export default function LinkFn<T extends Props>(props: T) {
-  return <Link href={props.url}>{props.children}</Link>;
+  return (
+    <Link className="nav-link" href={props.url}>
+      {props.children}
+    </Link>
+  );
 }
 
 const Link = styled.a`
   text-decoration: none;
-  margin-right: 0.6rem;
+  margin: 0.6rem;
   color: ${({theme}) => theme.color};
   font-weight: bolder;
+  border-bottom: 3px solid transparent;
+  &:hover {
+    border-bottom: 3px solid;
+  }
 `;

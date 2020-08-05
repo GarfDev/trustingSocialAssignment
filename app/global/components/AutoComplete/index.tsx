@@ -25,7 +25,7 @@ export default function AutoComplete<T extends Props>(props: T) {
     timeOut = setTimeout(() => {
       setInputData(event.target.value);
       props.onSearching?.(event.target.value);
-    }, 350);
+    }, 280);
   };
 
   const onClickSuggestion = (suggestion: string) => () => {
@@ -48,11 +48,14 @@ export default function AutoComplete<T extends Props>(props: T) {
 
   const suggestionElements = useMemo(() => {
     return filteredSuggestions.map((item, index) => (
-      <Styles.Result key={item + index} onClick={onClickSuggestion(item)}>
+      <Styles.Result
+        key={item + index}
+        height={props.inputHeight}
+        onClick={onClickSuggestion(item)}>
         {item}
       </Styles.Result>
     ));
-  }, [filteredSuggestions]);
+  }, [filteredSuggestions, props.inputHeight]);
 
   const isSearching = useMemo(() => {
     return filteredSuggestions.length > 2 && inputData.length > 0;
@@ -76,17 +79,19 @@ export default function AutoComplete<T extends Props>(props: T) {
   return (
     <Styles.Wrapper {...props}>
       <Styles.Input
+        className="legend-input"
         onChange={onInputChange}
-        width={props.inputWidth}
         height={props.inputHeight}
         placeholder={props.placeHolder || ''}
         ref={inputRef}
       />
-      <Styles.ResultContainer inputWidth={props.inputWidth}>
+      <Styles.ResultContainer
+        className="result-box"
+        inputWidth={inputRef.current.clientWidth + 'px' || ''}>
         {isSearching && suggestionElements}
         {filteredSuggestions.length === 0 && (
           <Styles.ErrorMessage>
-            {props.notFoundContent || 'Nothing found'}
+            {props.notFoundContent || 'Nothing found 😞'}
           </Styles.ErrorMessage>
         )}
       </Styles.ResultContainer>

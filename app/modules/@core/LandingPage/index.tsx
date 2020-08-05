@@ -6,11 +6,13 @@ import {words} from './constants';
 export default function LandingPage() {
   return (
     <Styles.Container>
-      <AutoComplete
-        suggestions={words}
-        inputWidth="50vw"
-        placeHolder="Search something.."
-      />
+      <Styles.Column className="column">
+        <AutoComplete
+          suggestions={words}
+          placeHolder="Try Vietnam.."
+          inputHeight={'5vh'}
+        />
+      </Styles.Column>
     </Styles.Container>
   );
 }

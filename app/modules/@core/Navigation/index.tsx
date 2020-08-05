@@ -16,11 +16,10 @@ export default function Navigation() {
   return (
     <Styles.Container>
       <Toggle isDark={currentTheme} toggleTheme={themeToggle} />
-      <Link url="">Home</Link>
-      <Link url="">Home</Link>
-      <Link url="">Home</Link>
-      <Link url="">Home</Link>
-      <Link url="">Home</Link>
+      <Link url="">Become a ghost</Link>
+      <Link url="">Help</Link>
+      <Link url="">Sign Up</Link>
+      <Link url="">Sign In</Link>
     </Styles.Container>
   );
 }
