@@ -6,17 +6,12 @@ const Styles = {
     height: max-content;
     padding: 20px;
 
-    .result-box {
-      max-width: 60%;
-    }
-
     .legend-input {
       padding: 18px 25px;
     }
 
     @media screen and (max-width: 600px) {
-      .result-box {
-        max-width: 100%;
+      .legend-input {
         padding: 18px 15px;
       }
     }
@@ -27,6 +22,7 @@ const Styles = {
     height: ${({height}) => height || '5rem'};
     font-size: ${({height}) => (height ? `calc(${height} - 2.5vh)` : '2rem')};
     border: 1px solid;
+    color: ${({theme}) => theme.borderColor};
     border-radius: 35px;
     transition: all 0.25s linear;
     outline: none;
@@ -35,6 +31,9 @@ const Styles = {
       border: 1px solid ${({theme}) => theme.color};
       box-shadow: 0 0 13px ${({theme}) => theme.color};
       transition: all 0.25s linear;
+    }
+    &::placeholder {
+      color: ${({theme}) => theme.borderColor};
     }
   `,
   ResultContainer: styled.div<{inputWidth?: string}>`

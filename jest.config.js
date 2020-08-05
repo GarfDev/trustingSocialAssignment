@@ -5,7 +5,10 @@ module.exports = {
 
   snapshotSerializers: ['enzyme-to-json/serializer'],
 
-  setupFilesAfterEnv: ['<rootDir>/app/setupEnzyme.ts', '@testing-library/jest-dom/extend-expect'],
+  setupFilesAfterEnv: [
+    '<rootDir>/app/setupEnzyme.ts',
+    '@testing-library/jest-dom/extend-expect',
+  ],
 
   moduleNameMapper: {
     '@/(.*)$': '<rootDir>/app/$1',

@@ -15,6 +15,7 @@ export default function AutoComplete<T extends Props>(props: T) {
   let timeOut: any;
 
   const [inputData, setInputData] = useState('');
+  const [clientWidth, setClientWidth] = useState(0);
   const inputRef = useRef(document.createElement('input'));
 
   // EVENT HANDLERS
@@ -70,6 +71,10 @@ export default function AutoComplete<T extends Props>(props: T) {
   }, [timeOut]);
 
   useEffect(() => {
+    setClientWidth(inputRef.current.clientWidth);
+  }, [inputRef.current.clientWidth]);
+
+  useEffect(() => {
     if (!isSearching && inputData) {
       props.onDoneSearching?.(filteredSuggestions); // Call when done searching
     }
@@ -85,16 +90,18 @@ export default function AutoComplete<T extends Props>(props: T) {
         placeholder={props.placeHolder || ''}
         ref={inputRef}
       />
-      <Styles.ResultContainer
-        className="result-box"
-        inputWidth={inputRef.current.clientWidth + 'px' || ''}>
-        {isSearching && suggestionElements}
-        {filteredSuggestions.length === 0 && (
-          <Styles.ErrorMessage>
-            {props.notFoundContent || 'Nothing found 😞'}
-          </Styles.ErrorMessage>
-        )}
-      </Styles.ResultContainer>
+      {inputRef.current && (
+        <Styles.ResultContainer
+          className="result-box"
+          inputWidth={clientWidth + 'px' || '0px'}>
+          {isSearching && suggestionElements}
+          {filteredSuggestions.length === 0 && (
+            <Styles.ErrorMessage>
+              {props.notFoundContent || 'Nothing found 😞'}
+            </Styles.ErrorMessage>
+          )}
+        </Styles.ResultContainer>
+      )}{' '}
     </Styles.Wrapper>
   );
 }
