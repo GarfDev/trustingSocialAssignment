@@ -1,5 +1,5 @@
 import {atom, selector} from 'recoil';
-import {DarkTheme, LightTheme} from '@/global/Theme';
+import {DarkTheme, LightTheme} from '@/global/theme';
 
 export const themeState = atom({
   key: 'themeState', // unique ID (with respect to other atoms/selectors)
