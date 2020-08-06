@@ -22,6 +22,6 @@
 
 - Start Development with Nodejs only:
   - npm install (yarn)
-  - npm run start (yarn start)
+  - npm run start (yarn start) (The server will start at localhost:3000)
 - Local Deploy with Docker:
-  - docker-compose up --build
+  - docker-compose up --build (The server will start at localhost:4000)
