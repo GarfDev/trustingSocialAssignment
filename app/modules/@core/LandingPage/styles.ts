@@ -20,6 +20,7 @@ const Styles = {
       background-image: url(https://images.unsplash.com/photo-1596713819592-e153fe3eacf4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9);
       background-size: cover;
       background-repeat: no-repeat;
+      backface-visibility: hidden;
       top: 0;
       left: 0;
       width: 100%;
