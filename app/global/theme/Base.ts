@@ -9,7 +9,6 @@ const BaseStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&family=Ubuntu+Mono&family=Comic+Neue&display=swap');
 
   #app {
     width: 100%;
@@ -21,7 +20,6 @@ const BaseStyle = createGlobalStyle`
     background: ${({theme}) => theme.backgroundColor};
     color: ${({theme}) => theme.color};
     border-color: ${({theme}) => theme.borderColor};
-    box-shadow: inset 0 180px 500px -120px ${({theme}) => theme.hoverColor};
     display: flex;
     flex-direction: column;
     height: 100vh;

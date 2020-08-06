@@ -11,6 +11,9 @@ const Styles = {
     }
 
     @media screen and (max-width: 600px) {
+      .result-box {
+        margin-top: 5px;
+      }
       .legend-input {
         padding: 18px 15px;
       }
