@@ -7,6 +7,7 @@
     "bundle": "webpack --config webpack.config.prod.js",
     "start": "webpack-dev-server --mode development --host 0.0.0.0 --hot -d --config webpack.config.dev.js",
     "test": "jest --passWithNoTests --collectCoverage",
+    "test:ci": "jest --passWithNoTests --ci --updateSnapshot",
     "test:watch": "jest --watch --verbose false",
     "build": "webpack --mode production --config webpack.config.prod.js && cp ./app/_redirects ./build/",
     "check-types": "tsc",
