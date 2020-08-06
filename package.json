@@ -10,6 +10,7 @@
     "test:ci": "jest --passWithNoTests --ci --updateSnapshot",
     "test:watch": "jest --watch --verbose false",
     "build": "webpack --mode production --config webpack.config.prod.js && cp ./app/_redirects ./build/",
+    "build:test": "webpack --mode production --config webpack.config.prod.js",
     "check-types": "tsc",
     "lint": "tsc --noEmit && eslint 'app/**/*.{ts,tsx}' --quiet --fix --max-warnings 0",
     "eslint": "eslint 'app/**/*.{ts,tsx}' --quiet --fix",

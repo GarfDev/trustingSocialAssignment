@@ -25,15 +25,19 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cmd: install
+      - name: TSLinting check
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: lint
+      - name: ESLint check
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: eslint
+      - name: Test around
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: test:ci
+      - name: Test build
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: build --if-present
+          cmd: build:test
