@@ -23,7 +23,7 @@
     "app/**/*.{ts,tsx,jsx,vue}": [
       "prettier --write",
       "eslint --fix",
-      "jest"
+      "jest --passWithNoTests --ci --u"
     ]
   },
   "dependencies": {
