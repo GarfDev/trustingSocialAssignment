@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const Styles = {
-  Container: styled.div`
+  Container: styled.div<{backgroundImage: string; isBluring: boolean}>`
     display: flex;
     justify-content: center;
     position: relative;
@@ -17,7 +17,9 @@ const Styles = {
       content: ' ';
       display: block;
       position: absolute;
-      background-image: url(https://images.unsplash.com/photo-1596713819592-e153fe3eacf4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9);
+      background-image: url(${({backgroundImage}) => backgroundImage});
+      filter: ${({isBluring}) => `blur(${isBluring ? 10 : 0}px)`};
+      transition: opacity ease-in 1000ms;
       background-size: cover;
       background-repeat: no-repeat;
       backface-visibility: hidden;
