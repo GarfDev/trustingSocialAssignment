@@ -10,6 +10,10 @@ const backgroundImageQuerier = (
   keywords: string,
   callback: (full: string, small: string) => void,
 ) => {
+  if (!keywords) {
+    return;
+  }
+
   return axios
     .get(
       `https://api.unsplash.com/search/photos?client_id=iLpC0mZUXQjpasN9sYbr8RhaVikJkVSGOOuQTgGppRQ&query=${keywords}`,
