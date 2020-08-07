@@ -19,7 +19,9 @@ const Styles = {
       position: absolute;
       background-image: url(${({backgroundImage}) => backgroundImage});
       filter: ${({isBluring}) => `blur(${isBluring ? 10 : 0}px)`};
-      transition: opacity ease-in 1000ms;
+      transition: opacity 0.15s linear;
+      transition: filter 0.05s linear;
+      transition: background-image 0.1s linear;
       background-size: cover;
       background-repeat: no-repeat;
       backface-visibility: hidden;
