@@ -5,8 +5,6 @@ import {ThemeProvider} from 'styled-components';
 import {themeSelector} from './atoms';
 import {BaseStyle} from '@/global/theme';
 // Import Resources
-import NavigationBar from '../Navigation';
-import LandingPage from '../LandingPage';
 
 function App() {
   const themeValue = useRecoilValue(themeSelector);
@@ -14,8 +12,6 @@ function App() {
   return (
     <Suspense fallback={<></>}>
       <ThemeProvider theme={themeValue}>
-        <NavigationBar />
-        <LandingPage />
         <BaseStyle />
       </ThemeProvider>
     </Suspense>

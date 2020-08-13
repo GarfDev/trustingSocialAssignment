@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  database:
+    image: 'mongo:latest'
+    container_name: 'database_mongo_container'
+    environment:
+      - MONGO_INITDB_DATABASE=relinen
+      - MONGO_INITDB_ROOT_USERNAME=garfield
+      - MONGO_INITDB_ROOT_PASSWORD=garfield
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
