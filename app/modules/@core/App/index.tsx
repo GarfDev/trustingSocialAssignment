@@ -2,7 +2,7 @@ import React, {Suspense} from 'react';
 import {useRecoilValue} from 'recoil';
 import {hot} from 'react-hot-loader/root';
 import {ThemeProvider} from 'styled-components';
-import {themeSelector} from './atoms';
+import {themeSelector} from '@/global/theme/atoms';
 import {BaseStyle} from '@/global/theme';
 // Import Resources
 

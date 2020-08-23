@@ -5,13 +5,16 @@ import ReactDOM from 'react-dom';
 import App from '@/modules/@core/App';
 // Cores
 import {RecoilRoot} from 'recoil';
-// router
-// configureStore
+// Router
+import {BrowserRouter as Router} from 'react-router-dom';
+
 const MOUNT_NODE = document.getElementById('app') as HTMLElement;
 
 ReactDOM.render(
   <RecoilRoot>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </RecoilRoot>,
   MOUNT_NODE,
 );

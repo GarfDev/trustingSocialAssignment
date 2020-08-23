@@ -29,6 +29,8 @@
     ]
   },
   "dependencies": {
+    "@types/antd": "^1.0.0",
+    "antd": "^4.5.4",
     "axios": "^0.19.2",
     "dotenv-webpack": "^1.7.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -38,6 +40,7 @@
     "offline-plugin": "^5.0.7",
     "react": "^0.0.0-experimental-7f28234f8",
     "react-dom": "^0.0.0-experimental-7f28234f8",
+    "react-router-dom": "^5.2.0",
     "recoil": "^0.0.10",
     "seamless-immutable": "^7.1.4",
     "styled-components": "^5.0.1"
@@ -65,6 +68,7 @@
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-hot-loader": "^4.1.1",
+    "@types/react-router-dom": "^5.1.5",
     "@types/react-test-renderer": "^16.9.3",
     "@types/recoil": "^0.0.1",
     "@types/styled-components": "^5.0.1",
