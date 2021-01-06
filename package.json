@@ -31,7 +31,7 @@
   "dependencies": {
     "@types/antd": "^1.0.0",
     "antd": "^4.5.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dotenv-webpack": "^1.7.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "immutable": "^4.0.0-rc.12",
